@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Social Network Login Status Detector Demo</title>
+	
+	<meta name="description" content="A demo showing how websites can detect which Social Networks a visitor is logged into." />
+	        
+    <meta property="og:title" content="Social Network Login Status Detector"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:site_name" content="Tom Anthony"/>
+    <meta property="og:description" content="A demo showing how websites can detect which Social Networks a visitor is logged into."/>
+	
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="styles.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>	
+	<script type='text/javascript' src='https://platform.twitter.com/widgets.js?ver=1.1'></script>
+	
+</head>
+<body>
+    
+
+    <div class="container">
+	    <section>
+			<div class="row">
+			    <div class="span16">
+			    	<div class="page-header">
+				        <h1>Social Network Login Status Detector Demo</h1>
+				    </div>
+				    
+				    
+			        <p></p>
+			        
+			        <div id="FacebookStatus" class="outputStatus"></div>
+			        <div id="TwitterStatus" class="outputStatus"></div>
+			        <div id="GoogleStatus" class="outputStatus"></div>
+			        <div id="GooglePlusStatus" class="outputStatus"></div>		
+			        
+					
+			    </div>
+			</div>
+		</section>
+	</div>
+	
+
+<img style="display:none;"
+onload="show_login_status('Google', true)"
+onerror="show_login_status('Google', false)"
+src="https://accounts.google.com/CheckCookie?continue=https://www.google.com/intl/en/images/logos/accounts_logo.png" />
+
+<!--img style="display:none;"
+onload="show_login_status('GooglePlus', true)"
+onerror="show_login_status('GooglePlus', false)"
+src="https://plus.google.com/up/?continue=https://www.google.com/intl/en/images/logos/accounts_logo.png&type=st&gpsrc=ogpy0" /-->
+
+<img style="display:none;" src="https://twitter.com/login?redirect_after_login=%2Ffavicon.ico" onload="show_login_status('Twitter', true)" onerror="show_login_status('Twitter', false)" />
+
+<div id="fb-root"></div>
+<script src="fbconnect.js"></script>
+
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+<script>
+
+	function init() {
+	  gapi.load('auth2', initSigninV2);
+	}
+	
+	var initSigninV2 = function() {
+		  auth2 = gapi.auth2.init({
+			  client_id: '671328013676-9dh8amnhao76001to0r9bd1ujb199sdd.apps.googleusercontent.com'
+		});
+		  
+		if (auth2.isSignedIn.get() == true)
+		{
+			show_login_status("GooglePlus", true);
+		}else{
+			show_login_status("GooglePlus", false);
+		}
+	}
+
+</script>
+
+</body>
+</html>

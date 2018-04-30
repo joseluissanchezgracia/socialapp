@@ -1,0 +1,96 @@
+body
+{
+	background-color: #769cc3;
+}
+
+h1, label, p
+{
+	color: white;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+}
+
+section
+{
+	padding-top: 50px;
+}
+
+footer
+{
+	margin-top: 50px;
+}
+
+a
+{
+	color: #fff;
+	text-decoration: underline;
+}
+
+form .clearfix input
+{
+}
+
+td, th
+{
+	background-color: #fff;
+}
+
+table .blue
+{
+	color: #000;
+}
+
+table .blue .headerSortUp, table .blue  .headerSortDown
+{
+	background-color: #fffcf6;
+}
+
+.alert td
+{
+	color: red;
+	font-weight: bold;
+}
+
+.floating-input
+{
+	float: left;
+	margin-right: 15px;
+}
+
+.outputStatus
+{
+	margin: 40px;
+	font-size: 1.4em;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+	color: #fff;
+}
+
+.green
+{
+	color: #48c948;
+}
+
+.red
+{
+	color: #ff0202;
+}
+
+.plusone
+{
+ float: right;
+}
+
+.tweet
+{
+ float: right;
+}
+
+.like
+{
+ float: right;
+ width: 100px;
+}
+
+.clearnow
+{
+ clear: both;
+}

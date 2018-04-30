@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: socialapp-prod-dep
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: socialapp-prod
+    spec:
+      containers:
+      - name: socialapp
+        imagePullPolicy: Always
+        image: kolepep/socialapp:latest
+        ports:
+        - containerPort: 80
+        - containerPort: 443
