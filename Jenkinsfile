@@ -17,14 +17,14 @@ node {
 
     // Roll out a prod
     case "master":
-        sh("sed -i.bak 's#kolepep/socialapp:latest#${imageTag}#' ./k8s/prod/*-dep.yaml")
+        sh("sed -i.bak 's#kolepep/socialapp:latest#${imageTag}#' ./k8s/prod/*-dep.yml")
         sh("kubectl --namespace=prod apply -f k8s/prod/")
         break
 
     // Roll out a dev
     default:
         sh("kubectl get ns ${env.BRANCH_NAME} || kubectl create ns ${env.BRANCH_NAME}")
-        sh("sed -i.bak 's#kolepep/socialapp:latest#${imageTag}#' ./k8s/dev/*.yaml")
+        sh("sed -i.bak 's#kolepep/socialapp:latest#${imageTag}#' ./k8s/dev/*.yml")
         sh("kubectl --namespace=${env.BRANCH_NAME} apply -f k8s/dev/")
 
   }
