@@ -9,18 +9,6 @@ node {
   sh("docker build -t ${imageTag} .")
 
   stage 'Push image to registry'
-  
-  withCredentials([usernamePassword(
-					 credentialsId: 'de53516b-6dc4-4f53-b6d5-bddc7a82db8c',
-					 passwordVariable: 'PASSWORD',
-					 usernameVariable: 'USER')]) {
-        withEnv(["ENV_USERNAME=${USER}",
-                 "ENV_PASSWORD=${PASSWORD}"]) {
-                
-			sh("sudo docker login --username=$ENV_USERNAME --password=$ENV_PASSWORD")
-
-        }
-    }
 	
   sh("docker -- push ${imageTag}")
 
