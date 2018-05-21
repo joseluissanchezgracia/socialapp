@@ -9,6 +9,7 @@ node {
   sh("docker build -t ${imageTag} .")
 
   stage 'Push image to registry'
+
   withCredentials([usernamePassword(
 	 credentialsId: '224d84d7-ebe2-4e4a-b3ae-7a619f9e0b1b',
 	 passwordVariable: 'PASSWORD',
